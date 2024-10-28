@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\slider.css">
+    <link rel="stylesheet" href="css\proyectos.css">
+</head>
+
+<body>
+    <div class="about_slider">
+        <div class="about_container">
+            <p class="nombre">DANIEL CALDERÓN<br>DE LA VEGA</p>
+            <div class="clipboard">
+                <span>dec.delavega.2c@gmail.com</span>
+                <img src="iconos\copy_clipboard.svg" alt="Copy_icon" class="icono_clipboard">
+            </div>
+            <div class="enlaces">
+                <a href=""><img src="iconos\github.svg" alt="" class="icono_enlaces"></a>
+                <a href="https://www.linkedin.com/in/daniel-calderon-de-la-vega-123019263" target="_blank"><img
+                        src="iconos/linkedin_icon.svg" alt="" class="icono_enlaces"></a>
+            </div>
+            <p class="about_info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione laborum omnis magnam
+                aspernatur
+                incidunt doloribus vitae nesciunt ut vero quaerat iure quibusdam asperiores nulla distinctio mollitia,
+                explicabo cumque fugiat sint?</p>
+        </div>
+        <div class="container_big_slider">
+            <div class="big_slider uno">
+                <div class="subtitulo_uno">
+                    FrontEnd
+                </div>
+                <div class="texto_escondido_uno">
+                    <div class="tecnologia_uno">
+                        <img src="iconos\html_icon.svg" alt="HTML5_icon" class="icono_slider">
+                        <span>HTML</span>
+                    </div>
+                    <div class="tecnologia_uno">
+                        <img src="iconos\css_icon.svg" alt="" class="icono_slider">
+                        <span>CSS</span>
+                    </div>
+                    <div class="tecnologia_uno">
+                        <img src="iconos\js_icon.svg" alt="" class="icono_slider">
+                        <span>JScript</span>
+                    </div>
+                    <div class="tecnologia_uno">
+                        <img src="iconos\angular_icon.svg" alt="" class="icono_slider">
+                        <span>ANGULAR</span>
+                    </div>
+                </div>
+            </div>
+            <div class="big_slider dos">
+                <div class="subtitulo_dos">
+                    BackEnd
+                </div>
+                <div class="texto_escondido_dos">
+                    <div class="tecnologia_dos">
+                        <span>Java</span>
+                        <img src="iconos\java_icon.svg" alt="Java_icon" class="icono_slider">
+                    </div>
+                    <div class="tecnologia_dos">
+                        <span>C#</span>
+                        <img src="iconos\Csharp_icon.svg" alt="C#_icon" class="icono_slider">
+                    </div>
+                    <div class="tecnologia_dos">
+                        <span>Python</span>
+                        <img src="iconos\python_icon.svg" alt="Python_Icon" class="icono_slider">
+                    </div>
+                    <div class="tecnologia_dos">
+                        <span>TypeScript</span>
+                        <img src="iconos\ts_icon.svg" alt="TypeSctipt_Icon" class="icono_slider">
+                    </div>
+                </div>
+                <canvas id="canvas" style="background: #111; width: 100%; height: 100%;"></canvas>
+                <script>
+                    var canvas = document.getElementById('canvas');
+                    var context = canvas.getContext('2d');
+                    function resizeCanvas() {
+                        // Ajustar el tamaño del canvas al tamaño del contenedor
+                        var container = canvas.parentElement;
+                        canvas.width = container.clientWidth;
+                        canvas.height = container.clientHeight;
+                        W = canvas.width;
+                        H = canvas.height;
+                        columns = Math.floor(W / fontSize);
+                        drops = [];
+                        for (var i = 0; i < columns; i++) {
+                            drops.push(0);
+                        }
+                    }
+                    resizeCanvas();
+                    var fontSize = 16;
+                    var columns = Math.floor(canvas.width / fontSize);
+                    var drops = [];
+                    for (var i = 0; i < columns; i++) {
+                        drops.push(0);
+                    }
+                    var str = "abcdefghijklmnopqrstuvwxyz";
+                    function draw() {
+                        context.fillStyle = "rgba(0,0,0,0.25)";
+                        context.fillRect(0, 0, canvas.width, canvas.height);
+                        context.font = "700 " + fontSize + "px sans-serif";
+                        context.fillStyle = "#f1ffdd";
+                        for (var i = 0; i < columns; i++) {
+                            var index = Math.floor(Math.random() * str.length);
+                            var x = i * fontSize;
+                            var y = drops[i] * fontSize;
+                            context.fillText(str[index], x, y);
+                            if (y >= canvas.height && Math.random() > 0.99) {
+                                drops[i] = 0;
+                            }
+                            drops[i]++;
+                        }
+                    }
+                    draw();
+                    setInterval(draw, 50);
+                    window.addEventListener('resize', resizeCanvas);
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="proyectos_container">
+        <div class="titulo_proyectos">
+            PROYECTOS
+        </div>
+        <div class="selector_dificultad">
+            <div class="dificultad" data-level="easy">Beginner</div>
+            <div class="dificultad" data-level="medium">Medium</div>
+            <div class="dificultad" data-level="hard">Pro</div>
+        </div>
+        <div class="proyectos">
+            <div class="proyectos_front">
+            </div>
+            <div class="proyectos_back">
+            </div>
+        </div>
+    </div>
+    <div class="project-description" style="display: none;"></div>
+    <script src="js\proyectos.js"></script>
+</body>
+<footer>
+
+</footer>
+
+</html>
