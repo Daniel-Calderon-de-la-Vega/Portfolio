@@ -14,6 +14,7 @@ html {
     justify-content: space-evenly;
     margin: 0 auto;
 
+
 }
 
 .about_container {
@@ -24,13 +25,42 @@ html {
     width: calc(40vw);
 }
 
-.nombre {
-    font-size: 50px;
+.nombre_foto {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.clipboard {
+.foto {
+    width: auto;
+    height: 150px;
+    margin-left: 20px;
+
+}
+
+.nombre {
+    font-size: 50px;
+}
+
+.about_me {
     font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.about_info {
+    color: #f1ffdd;
+    background-color: #010101;
+    border: #f1ffdd 2px solid;
+    border-radius: 10px;
+    padding: 10px 5px;
+}
+
+.clipboard {
+    display: flex;
+    font-size: 25px;
+    cursor: pointer;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .icono_clipboard {
@@ -40,13 +70,27 @@ html {
 }
 
 .enlaces {
+    display: flex;
     margin-top: 5px;
+    align-items: center;
+    justify-content: start;
+}
+
+.cv {
+    font-size: 30px;
+    text-decoration: none;
+    color: #010101;
+    background-color: #f1ffdd;
+    border-radius: 10px;
+    padding: 0 10px;
 }
 
 .icono_enlaces {
     width: 2em;
     height: 2em;
     object-fit: contain;
+    margin-right: 10px;
+
 }
 
 .container_big_slider {
@@ -58,6 +102,7 @@ html {
     border-radius: 20px;
     overflow: hidden;
     margin: 10px 10px;
+    border: #f1ffdd 2px solid;
 }
 
 .subtitulo_uno {
